@@ -1,0 +1,21 @@
+from encryptor import generate_key, load_key, encrypt_file, decrypt_file
+
+print("---- Advanced AES Encryption Tool ----")
+
+choice = input("Do you want to (G)enerate Key, (E)ncrypt, or (D)ecrypt? ").upper()
+
+if choice == "G":
+    generate_key()
+    print("✅ Key generated and saved as key.key")
+elif choice == "E":
+    key = load_key()
+    file = input("Enter filename to encrypt (e.g. secret.txt): ")
+    encrypt_file(file, key)
+    print("🔐 File encrypted successfully!")
+elif choice == "D":
+    key = load_key()
+    file = input("Enter filename to decrypt: ")
+    decrypt_file(file, key)
+    print("🔓 File decrypted successfully!")
+else:
+    print("❌ Invalid choice. Please choose G, E, or D.")
